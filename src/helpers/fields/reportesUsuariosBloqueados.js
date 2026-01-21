@@ -1,0 +1,55 @@
+const reportesUsuariosBloqueadosFields = [
+  {
+    type_element: "single-checkbox",
+    id: "tipo_reporte",
+    name: "tipo_reporte",
+    label: "Tipo Reporte",
+    items_select: ["GENERAL", "POR EMPLEADO", "POR MES"],
+    default_value: () => "GENERAL",
+  },
+  {
+    type_element: "single-select",
+    id: "empleado_id",
+    name: "empleado_id",
+    label: "Empleado",
+    api_call: {
+      method: "GET",
+      endpoint: "api/list/empleadosActivos",
+      params: null,
+      headers: null,
+    },
+    cols_desktop: "md:basis-2/4",
+    cols_mobile: "basis-full",
+    show: false,
+  },
+  {
+    type_element: "date-range",
+    id: "rango_fechas",
+    name: "rango_fechas",
+    label: "Rango Fechas",
+    show: false,
+  },
+  {
+    type_element: "single-checkbox",
+    id: "month",
+    name: "month",
+    label: "Mes",
+    items_select: [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
+    ],
+    show: false,
+  },
+];
+
+export default reportesUsuariosBloqueadosFields;

@@ -1,0 +1,83 @@
+const estructuraProyectoFields = [
+  {
+    type_element: "text",
+    id: "codigo_estructura",
+    name: "codigo_estructura",
+    label: "Código Estructura",
+    can_edit: false,
+    disabled: true,
+  },
+  {
+    type_element: "number",
+    id: "cantidad",
+    name: "cantidad",
+    label: "Cantidad",
+  },
+  {
+    type_element: "number",
+    id: "nro_pisos",
+    name: "nro_pisos",
+    label: "N° Pisos",
+  },
+  {
+    type_element: "single-select",
+    id: "tipo_estructura_id",
+    name: "tipo_estructura_id",
+    label: "Tipo Estructura",
+    api_call: {
+      method: "GET",
+      endpoint: "api/list/tiposEstructura",
+      params: null,
+      headers: null,
+    },
+    cols_desktop: "md:basis-1/2",
+    cols_mobile: "basis-full",
+    can_edit: false,
+  },
+  {
+    type_element: "single-select",
+    id: "tipo_cimentacion_id",
+    name: "tipo_cimentacion_id",
+    label: "Tipo Cimentación",
+    api_call: {
+      method: "GET",
+      endpoint: "api/list/tiposCimentacion",
+      params: null,
+      headers: null,
+    },
+    cols_desktop: "md:basis-1/2",
+    cols_mobile: "basis-full",
+    can_edit: false,
+  },
+  {
+    type_element: "number",
+    id: "area",
+    name: "area",
+    label: "Área (m²)",
+    accept_decimals: true,
+  },
+  {
+    type_element: "number",
+    id: "volumen",
+    name: "volumen",
+    label: "Volumen (m³)",
+    accept_decimals: true,
+  },
+  {
+    type_element: "single-checkbox",
+    id: "revit",
+    name: "revit",
+    label: "Revit",
+    items_select: ["SI", "NO"],
+  },
+  {
+    type_element: "textarea",
+    id: "descripcion",
+    name: "descripcion",
+    label: "Descripción",
+    cols_desktop: "md:basis-1/2",
+    cols_mobile: "basis-full",
+  },
+];
+
+export default estructuraProyectoFields;

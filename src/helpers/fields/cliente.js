@@ -1,0 +1,83 @@
+const clienteFields = [
+  {
+    type_element: "text",
+    id: "nombre_completo",
+    name: "nombre_completo",
+    label: "Nombre Completo",
+  },
+  {
+    type_element: "single-checkbox",
+    id: "tipo_documento",
+    name: "tipo_documento",
+    label: "Tipo Documento",
+    items_select: ["NIT", "CC"],
+    cols_desktop: "md:basis-1/4",
+    cols_mobile: "basis-full",
+  },
+  {
+    type_element: "number",
+    id: "nro_documento",
+    name: "nro_documento",
+    label: "N° Documento",
+    cols_desktop: "md:basis-1/4",
+    cols_mobile: "basis-full",
+  },
+  {
+    type_element: "single-select",
+    id: "pais_domicilio_id",
+    name: "pais_domicilio_id",
+    label: "País Domicilio",
+    api_call: {
+      method: "GET",
+      endpoint: "api/list/paises",
+      params: null,
+      headers: null,
+    },
+  },
+  {
+    type_element: "single-select",
+    id: "departamento_domicilio_id",
+    name: "departamento_domicilio_id",
+    label: "Dpto. Domicilio",
+    required: false,
+  },
+  {
+    type_element: "single-select",
+    id: "municipio_domicilio_id",
+    name: "municipio_domicilio_id",
+    label: "Mncipio. Domicilio",
+    required: false,
+  },
+  {
+    type_element: "text",
+    id: "direccion_domicilio",
+    name: "direccion_domicilio",
+    label: "Dirección Domilicio",
+    cols_desktop: "md:basis-2/4",
+    cols_mobile: "basis-full",
+  },
+  {
+    type_element: "text",
+    id: "telefono_celular",
+    name: "telefono_celular",
+    label: "Teléfono Celular",
+  },
+  {
+    type_element: "email",
+    id: "correo_electronico",
+    name: "correo_electronico",
+    label: "Correo Electrónico",
+    cols_desktop: "md:basis-1/2",
+    cols_mobile: "basis-full",
+  },
+  {
+    type_element: "email",
+    id: "correo_facturacion_electronica",
+    name: "correo_facturacion_electronica",
+    label: "Correo Facturación Electrónica",
+    cols_desktop: "md:basis-1/2",
+    cols_mobile: "basis-full",
+  },
+];
+
+export default clienteFields;
