@@ -1,1 +1,0 @@
-import a from"./ImageProfile-CQDy94gy.js";import{J as t,g as r,o}from"./index-gBeUf8ru.js";const m={__name:"ProfilePicture",setup(s){const e=t({margin:"auto auto",display:"flex"});return(c,i)=>(o(),r(a,{alt:"Profile",styles:e,imageName:"dr.andrescanchica.png",width:"150",height:"0"},null,8,["styles"]))}};export{m as default};
