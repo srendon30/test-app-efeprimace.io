@@ -24,5 +24,8 @@ export default defineConfig({
     }
   },
   base: '/test-app-efeprimace.io/',
+  build: {
+    outDir: 'docs',
+  },
   cacheDir: false,
 })
