@@ -1,7 +1,8 @@
-import { backendUrlFC } from "@/stores/main";
+import { useMainStore } from "@/stores/main";
 import { useAuthStore } from "@/stores/auth";
 import { HttpError } from "./errors";
 
+const backendUrlFC = useMainStore().backendUrlFC;
 const authStore = useAuthStore();
 
 async function fetchItems({ method, endpoint, params, headers }) {
