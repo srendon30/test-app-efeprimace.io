@@ -8,8 +8,8 @@ export const useMainStore = defineStore("main", () => {
   const isDarkMode = ref(localStorage.getItem("theme") === "dark" || false);
   const mobileBreakpoint = ref(768);
   const { isAppReady } = storeToRefs(useAuthStore());
-  //const backendUrlFC = import.meta.env.VITE_APP_BACKEND_URL_FC;
-  const backendUrlFC = import.meta.env.VITE_API_URL;
+  const backendUrlFC = import.meta.env.VITE_APP_BACKEND_URL_FC;
+  //const backendUrlFC = import.meta.env.VITE_API_URL;
   const isSidebarCollapsed = ref(true);
   const currentScreenWidth = ref(window.innerWidth);
 
@@ -91,4 +91,4 @@ export const useMainStore = defineStore("main", () => {
   };
 });
 
-//export const backendUrlFC = import.meta.env.VITE_APP_BACKEND_URL_FC;
+export const backendUrlFC = import.meta.env.VITE_APP_BACKEND_URL_FC;
