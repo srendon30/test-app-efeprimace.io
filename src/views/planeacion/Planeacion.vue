@@ -771,7 +771,7 @@ const actionMapAssignDesassignResponsables = {
 const assignResponsables = async () => {
 
     try {
-        const url = new URL(`api/massive/edit/form/${actionMapAssignDesassignResponsables[actionAssignDesassignResponsables.value.toLowerCase()]}`, backendUrlFC);
+        const url = new URL(`api/massive/edit/form/${actionMapAssignDesassignResponsables[actionAssignDesassignResponsables.value.toLowerCase()]}`);
 
         const data = {
             ordenId: ordenId.value,
@@ -1047,7 +1047,7 @@ const regenerarPlaneacionAutomatica = async () => {
         if (result.isConfirmed) {
 
             try {
-                const url = new URL('api/re-generate-automatic-planning', backendUrlFC);
+                const url = new URL('api/re-generate-automatic-planning');
 
                 const data = {
                     orden_id: ordenSelected.value.id,
@@ -1229,7 +1229,7 @@ const solicitarPlaneacionAutomatica = async () => {
             }
 
             try {
-                const url = new URL('api/generate-automatic-planning', backendUrlFC);
+                const url = new URL('api/generate-automatic-planning');
 
                 const data = {
                     orden_id: ordenSelected.value.id,

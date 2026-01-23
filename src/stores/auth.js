@@ -19,7 +19,7 @@ export const useAuthStore = defineStore("auth", () => {
 
   const register = async (credentials) => {
     const response = await fetch(
-      `${useMainStore().backendUrlFC}/api/register`,
+      "/api/register",
       {
         method: "POST",
         headers: {
@@ -50,7 +50,7 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const login = async (credentials) => {
-    return await fetch(`${useMainStore().backendUrlFC}/api/login`, {
+    return await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
@@ -79,7 +79,7 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const fetchUser = async () => {
-    const response = await fetch(`${useMainStore().backendUrlFC}/api/user`, {
+    const response = await fetch("/api/user", {
       method: "GET",
       headers: { Authorization: `Bearer ${token.value}` },
     })
@@ -101,7 +101,7 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const logout = async () => {
-    const response = await fetch(`${useMainStore().backendUrlFC}/api/logout`, {
+    const response = await fetch("/api/logout", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token.value}`,
@@ -125,7 +125,7 @@ export const useAuthStore = defineStore("auth", () => {
 
   const refreshToken = async () => {
     const response = await fetch(
-      `${useMainStore().backendUrlFC}/api/refresh-token`,
+      "/api/refresh-token",
       {
         method: "POST",
         headers: {
@@ -157,7 +157,7 @@ export const useAuthStore = defineStore("auth", () => {
 
   const invalidateToken = async () => {
     const response = await fetch(
-      `${useMainStore().backendUrlFC}/api/invalidate-token`,
+      "/api/invalidate-token",
       {
         method: "POST",
         headers: {

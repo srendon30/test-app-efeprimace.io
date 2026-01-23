@@ -11,11 +11,20 @@ export default defineConfig({
     vue(),
     vueJsx(),
   ],
-  server: {
-    host: true,          
-    watch: {
-      usePolling: true,
-      interval: 100  
+  // server: {
+  //   host: true,          
+  //   watch: {
+  //     usePolling: true,
+  //     interval: 100  
+  //   }
+  // },
+  server:{
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000', 
+        changeOrigin: true, 
+        secure: false, 
+      }
     }
   },
   resolve: {

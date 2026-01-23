@@ -1,40 +1,47 @@
-//import { useMainStore } from "@/stores/main"; Sirve para conectarlo con el cpanel
-import { backendUrlFC } from "@/stores/main";
 import { useAuthStore } from "@/stores/auth";
 import { HttpError } from "./errors";
+import { buildApiUrl } from "@/services/apiClient";
 
-//const backendUrlFC = useMainStore().backendUrlFC;
 const authStore = useAuthStore();
+const apiUrl = buildApiUrl(url);
 
 async function fetchItems({ method, endpoint, params, headers }) {
+  let url = endpoint;
+
+  // Agregar params a la ruta si es GET
   if (params && method === "GET") {
     Object.keys(params).forEach((key) => {
-      endpoint += `/${params[key]}`;
+      url += `/${params[key]}`;
     });
   }
-  const url = new URL(endpoint, backendUrlFC);
 
-  const response = await fetch(url, {
-    method: method,
-    headers: headers
-      ? headers
-      : {
-          Authorization: `Bearer ${authStore.token}`,
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-  });
+  // Asegurar que siempre pase por el proxy
+  if (!url.startsWith("/api")) {
+    url = `/api/${url}`;
+  }
+
+
+const response = await fetch(apiUrl, {
+  method,
+  headers: headers ?? {
+    Authorization: `Bearer ${authStore.token}`,
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+});
+
   if (response.status === 401) {
     throw new HttpError(
-      "Unauthorized: Porfavor vuelve a Iniciar Sesión",
+      "Unauthorized: Por favor vuelve a iniciar sesión",
       response.status
     );
   }
+
   if (!response.ok) {
     throw new HttpError("Error al listar los datos", response.status);
   }
-  const data = await response.json();
-  return data;
+
+  return await response.json();
 }
 
 async function createFieldElement(field) {
